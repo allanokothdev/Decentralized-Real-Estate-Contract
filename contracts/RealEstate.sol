@@ -54,7 +54,7 @@ contract RealEstate {
     require(msg.sender == properties[_id].owner);
 
     //Change Property Ownership
-    properties[_id].owner == _buyer;
+    properties[_id].owner = _buyer;
 
     //Notify transfer of Property Ownership
     emit Transfer(msg.sender, _buyer, _id);
