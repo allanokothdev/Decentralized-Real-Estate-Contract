@@ -1,10 +1,12 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.10;
 
 contract RealEstate {
 
   //Object
   struct Property {
     uint id;
+    string name;
     address owner;
     string location;
     uint cost;
@@ -20,8 +22,8 @@ contract RealEstate {
   uint public propertyCounter;
 
   //constructor to initialize admin and Land Counter
-     constructor() public {
-         admin = msg.sender;
+     constructor() {
+        admin = msg.sender;
         propertyCounter = 0;
     }
 
@@ -38,11 +40,11 @@ contract RealEstate {
   event Transfer(address indexed _from, address indexed _to, uint _land);
 
   //Function for adding/registering new land Ownership | Can only be executed by Contract Admin
-  function addProperty(string memory _location, uint _cost) public isAdmin{
+  function addProperty(string memory _name, string memory _location, uint _cost) public isAdmin{
     //Increase Property Counter by 1
     propertyCounter++;
     //Save New Property
-    properties[propertyCounter] = Property(propertyCounter,msg.sender,_location,_cost);
+    properties[propertyCounter] = Property(propertyCounter, _name,msg.sender,_location,_cost);
 
     //Notify about Property Creation
     emit Add(msg.sender, propertyCounter);
@@ -62,14 +64,23 @@ contract RealEstate {
     return true;
   }
 
-  function fetchProperty(uint _id) public view returns (uint, address, string memory, uint) {
+  function fetchProperty(uint _id) public view returns (uint, string memory, address, string memory, uint) {
+    uint i = find(_id);
     return (
       properties[_id].id,
+      properties[_id].name,
       properties[_id].owner,
       properties[_id].location,
       properties[_id].cost
     );
   }
 
-
+  function find(uint _id) view internal returns (uint) {
+    for(uint i = 0; i < 10; i++){
+      if(properties[i].id == _id){
+        return i;
+      }
+    }
+    revert('Property does not exist!');
+  }
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Real Estate Dapp</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <h1>Real Estate Dapp</h1>
+    <div>
+        <button onclick="connectWallet()">Connect Wallet</button><br><br>
+
+        <div>
+            <label for= "pname">Property Name:</label>
+            <input type="text" id="pname" name="pname"><br><br>
+        </div>
+
+        <div>
+            <label for= "plocation">Property Location:</label>
+            <input type="text" id="plocation" name="plocation"><br><br>
+        </div>
+
+        <div>
+            <label for= "pcost">Property Cost:</label>
+            <input type="number" id="pcost" name="pcost"><br><br>
+        </div>
+
+        <button onclick="addProperty()">Add Property</button><br><br>
+
+        <button onclick="fetchProperty()">Fetch Property</button><br><br>
+
+        <button onclick="transferProperty()">Transfer Property ID:1</button><br><br>
+
+
+    </div>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"></script>
+    <script src='main.js'></script>
+</body>
+</html>

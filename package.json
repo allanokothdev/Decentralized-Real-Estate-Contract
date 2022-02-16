@@ -1,0 +1,29 @@
+{
+  "name": "real-estate",
+  "version": "1.0.0",
+  "description": "ReaL Estate Dapp",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allanokothdev/Decentralized-Real-Estate-Contract.git"
+  },
+  "keywords": [
+    "Allan"
+  ],
+  "author": "Allan Okoth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allanokothdev/Decentralized-Real-Estate-Contract/issues"
+  },
+  "homepage": "https://github.com/allanokothdev/Decentralized-Real-Estate-Contract#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.0"
+  }
+}
